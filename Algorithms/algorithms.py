@@ -16,7 +16,7 @@ import math
 """
 
 def readingGMLFile():
-  gml_files = sorted(glob.glob("/Users/pourdamghani/Desktop/Mcast/*.gml"))
+  gml_files = sorted(glob.glob("Path to GML graphs/*.gml"))
   graphs = [nx.read_gml(file, label='id') for file in gml_files]
   return graphs
 
@@ -28,8 +28,7 @@ def get_edge_bandwidths(graph):
     return caps
 
 def gettingZooGraphs():
-    #path = "/content/drive/MyDrive/zoo/*.xml"
-    path = "/Users/pourdamghani/Documents/zoo/*.graphml"
+    path = "Path to Zoo Graphs/*.graphml"
     Zlist = list(glob.glob(path))
     graphs = []
     for zoo in Zlist:
@@ -50,12 +49,6 @@ def gettingZooGraphs():
     graphs.sort(key=len)
     return graphs
 
-graphs = gettingZooGraphs()
-count = 1
-for graph in graphs:
-  name = "/Users/pourdamghani/Documents/zoo/" + str(count) + ".gml"
-  count+=1
-  nx.write_gml(graph, name)
 
 string_to_int_map = {}
 next_available_id = 0
